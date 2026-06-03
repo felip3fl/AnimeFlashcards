@@ -7,17 +7,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0f0e0c;
+    --bg: #d4d4d4;
     --surface: #1a1815;
-    --card-front: #1e1c18;
+    --card-front: #d4d4d4;
     --card-back: #2a1f0e;
     --accent: #e8a94b;
     --accent-dim: #a87630;
     --text-primary: #f0e8d8;
     --text-muted: #7a7060;
-    --border: #2e2b24;
+    --border: #a0a0a0;
     --gold-glow: rgba(232, 169, 75, 0.15);
     --radius: 16px;
+    --bg-card: #e6e6e6;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -208,7 +209,7 @@
     flex: 1;
     overflow: hidden;
     position: relative;
-    background: #13110e;
+    background: var(--bg-card);
   }
 
   .card-front .image-area img {
