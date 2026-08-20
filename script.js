@@ -332,6 +332,7 @@ const sampleCards = [
       grid.appendChild(wrapper);
     });
     updateStats();
+    shuffleCards();
   }
 
   function flipCard(cardEl) {
