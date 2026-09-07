@@ -3,13 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1a1815">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="FlashCards">
 <title>Flashcards de Estudo</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <script src="script.js" defer></script>
 </head>
 <body>
 
+<aside class="install-banner" id="installBanner" aria-live="polite" hidden>
+  <div>
+    <strong>Leve seus cards com voce</strong>
+    <p id="installMessage">Instale o FlashCards para abrir como um aplicativo.</p>
+  </div>
+  <div class="install-actions">
+    <button class="install-dismiss" id="installDismiss" type="button" aria-label="Fechar aviso">x</button>
+    <button class="btn primary install-button" id="installButton" type="button">Instalar</button>
+  </div>
+</aside>
 <header>
   <div class="header-label">Modo de Estudo</div>
   <h1>Flash<span>Cards</span></h1>

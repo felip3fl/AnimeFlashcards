@@ -293,7 +293,7 @@ const sampleCards = [
   let flippedSet = new Set();
 
   // ─── Render ───────────────────────────────────────────────────────────────────
-  function render() {
+  function render({ shuffle = false } = {}) {
     const grid = document.getElementById('cardGrid');
     grid.innerHTML = '';
     cards.forEach((card, i) => {
@@ -332,7 +332,7 @@ const sampleCards = [
       grid.appendChild(wrapper);
     });
     updateStats();
-    shuffleCards();
+    if (shuffle) shuffleCards();
   }
 
   function flipCard(cardEl) {
@@ -371,6 +371,44 @@ const sampleCards = [
     render();
   }
 
+
+  // Instalacao do aplicativo
+  let installPromptEvent;
+  const installBanner = document.getElementById('installBanner');
+  const installButton = document.getElementById('installButton');
+  const installMessage = document.getElementById('installMessage');
+  const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+
+  function showInstallBanner() {
+    if (!isStandalone && !localStorage.getItem('flashcards-install-dismissed')) installBanner.hidden = false;
+  }
+
+  window.addEventListener('beforeinstallprompt', (event) => {
+    event.preventDefault();
+    installPromptEvent = event;
+    showInstallBanner();
+  });
+
+  installButton.addEventListener('click', async () => {
+    if (installPromptEvent) {
+      installPromptEvent.prompt();
+      await installPromptEvent.userChoice;
+      installPromptEvent = null;
+      installBanner.hidden = true;
+    } else if (isIos) {
+      installMessage.textContent = 'No Safari, toque em Compartilhar e depois em Adicionar a Tela de Inicio.';
+      installButton.hidden = true;
+    }
+  });
+
+  document.getElementById('installDismiss').addEventListener('click', () => {
+    localStorage.setItem('flashcards-install-dismissed', 'true');
+    installBanner.hidden = true;
+  });
+  window.addEventListener('appinstalled', () => { installPromptEvent = null; installBanner.hidden = true; });
+  if (isIos && !isStandalone) showInstallBanner();
+  if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js'));
   // ─── Tooltip ──────────────────────────────────────────────────────────────────
   let tooltipTimer;
   function showTooltip(text) {
@@ -438,4 +476,4 @@ const sampleCards = [
   }
 
   // ─── Init ─────────────────────────────────────────────────────────────────────
-  render();
+  render({ shuffle: true });
