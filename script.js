@@ -287,6 +287,12 @@ const sampleCards = [
       tag: "Red Dead Redemption",
       imageUrl: "https://static.wikia.nocookie.net/reddead/images/8/87/RDR2_Dutch_van_der_Linde_PC.png/revision/latest?cb=20210201222847&path-prefix=pt-br"
     },
+    {
+      name: "Yuno",
+      desc: "Yuno Grinberryall",
+      tag: "Black Clover",
+      imageUrl: "https://static.wikia.nocookie.net/blackclover/images/1/1f/Yuno_perfil.png/revision/latest?cb=20190626182147&path-prefix=pt-br"
+    },
   ];
 
   let cards = [...sampleCards];
