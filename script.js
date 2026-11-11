@@ -293,6 +293,12 @@ const sampleCards = [
       tag: "Black Clover",
       imageUrl: "https://static.wikia.nocookie.net/blackclover/images/1/1f/Yuno_perfil.png/revision/latest?cb=20190626182147&path-prefix=pt-br"
     },
+    {
+      name: "Noelle",
+      desc: "Noelle Granhiel",
+      tag: "Black Clover",
+      imageUrl: "https://static.wikia.nocookie.net/blackclover/images/f/f8/Noelle_anime.png/revision/latest?cb=20180712175234&path-prefix=pt-br"
+    },
   ];
 
   let cards = [...sampleCards];
