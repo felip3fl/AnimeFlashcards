@@ -305,6 +305,12 @@ const sampleCards = [
       tag: "Black Clover",
       imageUrl: "https://static.wikia.nocookie.net/blackclover/images/5/51/Asta.png/revision/latest?cb=20171212161852&path-prefix=pt-br"
     },
+    {
+      name: "Yami ",
+      desc: "Yami Sukehiro",
+      tag: "Black Clover",
+      imageUrl: "https://static.wikia.nocookie.net/blackclover/images/1/1f/Yami_anime_profile.png/revision/latest?cb=20251101201658&path-prefix=pt-br"
+    },
   ];
 
   let cards = [...sampleCards];
